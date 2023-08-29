@@ -36,6 +36,8 @@ out/
 ### VS Code ###
 .vscode/
 
-
 ### Project files added manually by Jacob Damian Graham on August 08, 2023 ###
 SpringBootInformation
+
+### Application properties file manually added by Jacob Damian Graham on August 28, 2023 ###
+src/main/resources/application.properties
