@@ -8,5 +8,4 @@ import java.util.UUID;
 
 public interface IUserBlogRepository extends CrudRepository<UserBlog, UUID> {
 
-
 }

@@ -34,16 +34,35 @@ public class User {
     }
 
     protected User(String username, String password) {
-        validateUsername(username);
-        validatePassword(password);
+
+    }
+
+    public void setId(final UUID id) {
+        this.id = id;
+    }
+
+    public UUID getId() {
+        return this.id;
+    }
+
+    public void setUsername(final String username) {
         this.username = username;
+    }
+
+    public String getUsername() {
+        return this.username;
+    }
+
+    public void setPassword(final String password) {
         this.password = password;
     }
 
-    private void validateUsername(final String username) {
-
+    public String getPassword() {
+        return this.password;
     }
-    private void validatePassword(final String password) {
 
+    public void setUserBlogList(final List<UserBlog> user_blog_list) {
+        this.user_blog_list = user_blog_list;
     }
+
 }

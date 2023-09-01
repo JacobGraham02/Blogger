@@ -14,5 +14,20 @@ public class UserForm {
     @Size(min=4,max=32,message="The password field data must be between 4 and 32 characters in length")
     private String password;
 
+    public void setUsername(final String username) {
+        this.username = username;
+    }
+    public final String getUsername() {
+        return this.username;
+    }
+
+    public final void setPassword(final String password) {
+        this.password = password;
+    }
+
+    public final String getPassword() {
+        return this.password;
+    }
+
 
 }

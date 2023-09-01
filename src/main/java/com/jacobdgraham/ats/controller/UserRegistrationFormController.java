@@ -20,9 +20,9 @@ public class UserRegistrationFormController {
     }
 
     @PostMapping("/register")
-    public String registerUser(@ModelAttribute("userForm") @Valid UserForm userForm, BindingResult bindingResult, Model model) {
+    public String registerUser(@Valid @ModelAttribute("userForm") UserForm userForm, BindingResult bindingResult, Model model) {
         model.addAttribute("userForm", userForm);
         bindingResult.hasErrors();
-        return "registrationForm";
+        return "test";
     }
 }

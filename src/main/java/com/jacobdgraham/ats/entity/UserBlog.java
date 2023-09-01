@@ -15,22 +15,22 @@ public class UserBlog {
     @GeneratedValue(strategy=GenerationType.UUID)
     private UUID id;
 
-    @Column(length=255,nullable=false)
+    @Column(name="title",length=255,nullable=false)
     @NotEmpty(message="Your article title cannot be empty")
     @Size(min=4,max=255,message="Your article title must be between 0 and 255 characters")
     private String title;
 
-    @Column(unique=true,length=255,nullable=false)
+    @Column(name="url",unique=true,length=255,nullable=false)
     @NotEmpty(message="This article uri cannot be empty")
     @Size(min=50,max=255,message="This article uri must be between 50 and 255 characters")
     private String uri;
 
-    @Column(unique=true,nullable=false)
+    @Column(name="short_description",unique=true,nullable=false)
     @NotEmpty(message="The brief description of this article cannot be empty")
     @Lob
     private String short_description;
 
-    @Column(unique=true,nullable=false)
+    @Column(name="content",unique=true,nullable=false)
     @NotEmpty(message="The content of this article cannot be empty")
     @Lob
     private String content;
@@ -44,26 +44,83 @@ public class UserBlog {
     private Date updated;
 
     @ManyToOne
-    @JoinColumn(name="id",referencedColumnName="id")
+    @JoinColumn(name="user_id",referencedColumnName="id")
     private User user;
 
     protected UserBlog() {
 
     }
 
-    public UserBlog(String title, String uri) {
-        validateTitle(title);
-        validateUri(uri);
+    public UserBlog(final String title, final String uri, final String short_description, final String content, final Date created, final Date updated) {
+        setTitle(title);
+        setUri(uri);
+        setShortDescription(short_description);
+        setContent(content);
+        setCreated(created);
+        setUpdated(updated);
+    }
+
+    public UUID getId() {
+        return id;
+    }
+
+    public void setId(UUID id) {
+        this.id = id;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
         this.title = title;
+    }
+
+    public String getUri() {
+        return uri;
+    }
+
+    public void setUri(String uri) {
         this.uri = uri;
     }
 
-    private void validateTitle(final String article_title) {
-
+    public String getShortDescription() {
+        return short_description;
     }
 
-    private void validateUri(final String article_uri) {
-
+    public void setShortDescription(String short_description) {
+        this.short_description = short_description;
     }
 
+    public String getContent() {
+        return content;
+    }
+
+    public void setContent(String content) {
+        this.content = content;
+    }
+
+    public Date getCreated() {
+        return created;
+    }
+
+    public void setCreated(Date created) {
+        this.created = created;
+    }
+
+    public Date getUpdated() {
+        return updated;
+    }
+
+    public void setUpdated(Date updated) {
+        this.updated = updated;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
 }
